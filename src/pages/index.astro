@@ -1,11 +1,776 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const profile = {
+	name: 'Hari Kishan',
+	role: 'Enterprise Technology, Cloud, Data & AI Leader',
+	location: 'McKinney, TX',
+	email: 'harikishan1180@gmail.com',
+	phone: '+1 (203) 673-5155',
+	linkedin: 'linkedin.com/in/hari-kishan',
+	github: 'github.com/harry1180',
+	summary:
+		'Enterprise technology executive leading platform modernization, cloud transformation, data and AI programs, contact center reinvention, and cyber-risk-aware operating models across regulated industries.',
+};
+
+const highlights = [
+	'Cloud & infrastructure modernization',
+	'Data, AI & agentic AI leadership',
+	'Digital customer experience transformation',
+	'Cybersecurity governance & risk',
+];
+
+const experience = [
+	{
+		company: 'Manulife / John Hancock',
+		role: 'Director of Cloud Engineering',
+		dates: 'Aug 2024 - Present',
+		description:
+			'Lead enterprise delivery for data, AI, agentic AI, and customer experience modernization across insurance operations supporting policy servicing, claims, underwriting support, and contact center transformation.',
+		impact: [
+			'Align priorities across 8 lines of business and regulated workflows',
+			'Modernize legacy IVR and telephony into cloud-based AI-enabled service platforms',
+			'Establish responsible AI governance, traceability, audit readiness, and fallback controls',
+		],
+	},
+	{
+		company: 'Eli Lilly',
+		role: 'Senior Associate Manager - Cloud Data Engineering & Platform Strategy',
+		dates: 'Jul 2020 - Jul 2024',
+		description:
+			'Led cloud data platform and analytics delivery in a highly regulated healthcare environment, balancing modernization goals with quality, governance, and business continuity requirements.',
+		impact: [
+			'Directed platform migration and operating model improvements',
+			'Built scalable data engineering frameworks and production-ready pipelines',
+			'Strengthened governance through quality controls, lineage, SLAs, and monitoring',
+		],
+	},
+	{
+		company: 'Kaodim',
+		role: 'Machine Learning & Platform Lead',
+		dates: 'Feb 2020 - Jul 2020',
+		description:
+			'Led delivery of ML-enabled automation capabilities and platform improvements that increased scalability, improved operational efficiency, and supported rapid product iteration.',
+		impact: [
+			'Advanced service-based architecture practices',
+			'Improved CI/CD discipline and deployment reliability',
+			'Helped make core systems more maintainable',
+		],
+	},
+	{
+		company: 'Deloitte',
+		role: 'Technical Consultant - Cloud Contact Center Transformation',
+		dates: 'Jan 2019 - Feb 2020',
+		description:
+			'Advised on cloud contact center transformation initiatives combining customer experience redesign, workflow automation, architecture modernization, and platform delivery.',
+		impact: [
+			'Implemented scalable service flows',
+			'Coordinated business and engineering stakeholders',
+			'Supported enterprise customer operations modernization',
+		],
+	},
+	{
+		company: 'Aroha Technologies / Tech Mahindra',
+		role: 'Earlier Career: Data Engineering, DevOps, Analytics & Delivery Leadership',
+		dates: 'Jul 2015 - Jan 2019',
+		description:
+			'Built foundational experience leading data delivery, analytics enablement, DevOps automation, stakeholder coordination, and platform scaling across marketing, fintech, and digital product environments.',
+		impact: [
+			'Supported cross-border collaboration',
+			'Advanced partner integration and roadmap execution',
+			'Improved engineering process maturity',
+		],
+	},
+];
+
+const projects = [
+	{
+		name: 'Insurance CX Modernization',
+		stack: 'Cloud, AI, Contact Center',
+		description:
+			'Modernizing policyholder service operations through cloud-based AI service platforms, stronger governance, and improved operating models.',
+	},
+	{
+		name: 'Enterprise Analytics Platform',
+		stack: 'Cloud Data, Governance, AI/ML',
+		description:
+			'Led regulated healthcare analytics platform delivery with production-ready pipelines, quality controls, monitoring, and compliance-aligned practices.',
+	},
+	{
+		name: 'Responsible AI Operating Model',
+		stack: 'AI Governance, Risk, Auditability',
+		description:
+			'Created governance patterns for responsible AI adoption, including traceability, human-in-the-loop controls, fallback paths, and risk-aware deployment.',
+	},
+];
+
+const skills = [
+	'Enterprise Transformation Strategy',
+	'Platform, Data & AI Leadership',
+	'Cloud & Infrastructure Modernization',
+	'Cybersecurity Governance & Risk',
+	'Digital Customer Experience',
+	'Cloud Contact Center',
+	'Regulated Industry Delivery',
+	'Global Team Leadership',
+	'Executive Stakeholder Communication',
+	'Vendor & Partner Management',
+	'Agile / SAFe Operating Models',
+	'Service Reliability & Resilience',
+	'Compliance, Auditability & Control Design',
+];
+
+const certifications = [
+	'AWS Solutions Architect Professional',
+	'AWS DevOps Engineer Professional',
+	'AWS Machine Learning Specialty',
+	'AWS Generative AI Developer Professional Early Adopter',
+	'Microsoft Azure Solutions Architect Expert',
+	'SAFe 5 Practitioner',
+];
+
+const credentials = [
+	{
+		title: 'Thought Leadership',
+		items: [
+			'Author of "The Thinking Voice"',
+			'Research and publication work spanning hybrid SLM/LLM architectures, AI planning robustness, and machine learning-based volatility modeling',
+		],
+	},
+	{
+		title: 'Speaking & Media',
+		items: [
+			'Apex Assembly: Agentic Voice AI',
+			'AI Loves Data Austin',
+			'AI4 2026: The Rise of Agentic CX',
+			'Technology and digital leadership summits',
+		],
+	},
+	{
+		title: 'Industry Breadth',
+		items: [
+			'Insurance',
+			'Healthcare',
+			'Fintech',
+			'Marketing',
+			'Supply chain',
+			'Entertainment',
+			'Contact center / CX',
+			'Cloud platforms',
+			'Industrial / mechanical contexts',
+		],
+	},
+];
+
+const education = {
+	school: 'IIIT RK Valley',
+	degree: 'B.Tech (Dual Degree), Electronics & Communication',
+	detail: 'Minor in Management | CGPA: 8.11/10',
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={`${profile.name} | ${profile.role}`} description={profile.summary}>
+	<main class="resume-shell">
+		<nav class="topbar" aria-label="Primary navigation">
+			<a class="brand" href="#top" aria-label={`${profile.name} home`}>HK</a>
+			<div class="nav-links">
+				<a href="#experience">Experience</a>
+				<a href="#projects">Projects</a>
+				<a href="#contact">Contact</a>
+			</div>
+		</nav>
+
+		<section id="top" class="hero" aria-labelledby="intro-title">
+			<div class="hero-copy">
+				<p class="eyebrow">{profile.location}</p>
+				<h1 id="intro-title">{profile.name}</h1>
+				<p class="role">{profile.role}</p>
+				<p class="summary">{profile.summary}</p>
+				<div class="hero-actions">
+					<a class="button primary" href={`mailto:${profile.email}`}>Email Me</a>
+					<a class="button secondary" href="#projects">View Work</a>
+				</div>
+			</div>
+
+			<aside class="profile-panel" aria-label="Resume highlights">
+				<div>
+					<p class="panel-label">Focus</p>
+					<ul class="highlight-list">
+						{highlights.map((item) => <li>{item}</li>)}
+					</ul>
+				</div>
+				<div class="availability">
+					<span aria-hidden="true"></span>
+					Enterprise modernization across regulated, customer-facing environments
+				</div>
+			</aside>
+		</section>
+
+		<section class="section split" aria-labelledby="about-title">
+			<div>
+				<p class="eyebrow">About</p>
+				<h2 id="about-title">Technical depth with executive-level delivery leadership.</h2>
+			</div>
+			<p>
+				Hari brings a rare blend of platform engineering depth, strategic communication,
+				governance discipline, and people leadership. His work centers on aligning business
+				and technology strategy, strengthening operating models, and delivering measurable
+				gains in resilience, customer experience, efficiency, and scale.
+			</p>
+		</section>
+
+		<section class="section" aria-labelledby="credentials-title">
+			<div class="section-heading">
+				<p class="eyebrow">Credentials</p>
+				<h2 id="credentials-title">Certifications & Leadership Signals</h2>
+			</div>
+
+			<div class="credential-layout">
+				<article class="credential-block certification-block">
+					<h3>Certifications</h3>
+					<ul>
+						{certifications.map((certification) => <li>{certification}</li>)}
+					</ul>
+				</article>
+
+				<div class="credential-grid">
+					{
+						credentials.map((credential) => (
+							<article class="credential-block">
+								<h3>{credential.title}</h3>
+								<ul>
+									{credential.items.map((item) => (
+										<li>{item}</li>
+									))}
+								</ul>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section id="experience" class="section" aria-labelledby="experience-title">
+			<div class="section-heading">
+				<p class="eyebrow">Experience</p>
+				<h2 id="experience-title">Recent Roles</h2>
+			</div>
+
+			<div class="timeline">
+				{
+					experience.map((job) => (
+						<article class="timeline-item">
+							<div>
+								<p class="dates">{job.dates}</p>
+								<h3>{job.role}</h3>
+								<p class="company">{job.company}</p>
+							</div>
+							<div>
+								<p>{job.description}</p>
+								<ul>
+									{job.impact.map((item) => (
+										<li>{item}</li>
+									))}
+								</ul>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section id="projects" class="section" aria-labelledby="projects-title">
+			<div class="section-heading">
+				<p class="eyebrow">Selected Work</p>
+				<h2 id="projects-title">Projects</h2>
+			</div>
+
+			<div class="project-grid">
+				{
+					projects.map((project) => (
+						<article class="project-card">
+							<p>{project.stack}</p>
+							<h3>{project.name}</h3>
+							<span>{project.description}</span>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="section skills-section" aria-labelledby="skills-title">
+			<div class="section-heading">
+				<p class="eyebrow">Toolkit</p>
+				<h2 id="skills-title">Executive Strengths</h2>
+			</div>
+			<ul class="skill-list">
+				{skills.map((skill) => <li>{skill}</li>)}
+			</ul>
+		</section>
+
+		<section class="section split education-section" aria-labelledby="education-title">
+			<div>
+				<p class="eyebrow">Education</p>
+				<h2 id="education-title">{education.school}</h2>
+			</div>
+			<p>
+				<strong>{education.degree}</strong><br />
+				{education.detail}
+			</p>
+		</section>
+
+		<section id="contact" class="contact-section" aria-labelledby="contact-title">
+			<div>
+				<p class="eyebrow">Contact</p>
+				<h2 id="contact-title">Let's connect on cloud, data, AI, and enterprise transformation.</h2>
+			</div>
+			<div class="contact-links">
+				<a href={`mailto:${profile.email}`}>{profile.email}</a>
+				<a href={`tel:${profile.phone.replaceAll(/[^\d+]/g, '')}`}>{profile.phone}</a>
+				<a href={`https://${profile.linkedin}`}>{profile.linkedin}</a>
+				<a href={`https://${profile.github}`}>{profile.github}</a>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	.resume-shell {
+		width: min(1120px, calc(100% - 32px));
+		margin: 0 auto;
+		padding: 24px 0 56px;
+	}
+
+	.topbar {
+		position: sticky;
+		top: 12px;
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 18px;
+		width: 100%;
+		padding: 12px 14px;
+		border: 1px solid rgba(32, 33, 36, 0.12);
+		border-radius: 8px;
+		background: rgba(255, 252, 246, 0.86);
+		backdrop-filter: blur(18px);
+	}
+
+	.brand,
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+	}
+
+	.brand {
+		width: 42px;
+		height: 42px;
+		border-radius: 50%;
+		background: #234c46;
+		color: #fffaf1;
+		font-weight: 800;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+
+	.nav-links a {
+		padding: 10px 12px;
+		color: #3f4442;
+		font-size: 0.94rem;
+		text-decoration: none;
+	}
+
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.78fr);
+		gap: 32px;
+		align-items: stretch;
+		min-height: 620px;
+		padding: 88px 0 64px;
+	}
+
+	.hero-copy {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.eyebrow,
+	.panel-label,
+	.dates,
+	.project-card p {
+		margin: 0;
+		color: #6c4f39;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	h1,
+	h2,
+	h3,
+	p {
+		margin-top: 0;
+	}
+
+	h1 {
+		max-width: 780px;
+		margin-bottom: 12px;
+		font-size: clamp(4rem, 14vw, 8.5rem);
+		line-height: 0.92;
+	}
+
+	h2 {
+		max-width: 690px;
+		margin-bottom: 0;
+		font-size: clamp(2rem, 5vw, 4rem);
+		line-height: 1;
+	}
+
+	h3 {
+		margin-bottom: 8px;
+		font-size: 1.2rem;
+	}
+
+	.role {
+		margin-bottom: 24px;
+		color: #234c46;
+		font-size: clamp(1.4rem, 4vw, 2.3rem);
+		font-weight: 800;
+	}
+
+	.summary {
+		max-width: 660px;
+		margin-bottom: 34px;
+		color: #3f4442;
+		font-size: clamp(1.08rem, 2vw, 1.35rem);
+		line-height: 1.6;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.button {
+		min-height: 48px;
+		padding: 0 18px;
+		border: 1px solid #234c46;
+		border-radius: 8px;
+		font-weight: 800;
+	}
+
+	.primary {
+		background: #234c46;
+		color: #fffaf1;
+	}
+
+	.secondary {
+		background: transparent;
+		color: #234c46;
+	}
+
+	.profile-panel,
+	.credential-block,
+	.project-card,
+	.contact-section {
+		border: 1px solid rgba(32, 33, 36, 0.12);
+		border-radius: 8px;
+		background: #fffaf1;
+	}
+
+	.profile-panel {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 48px;
+		padding: 28px;
+		box-shadow: 0 24px 60px rgba(32, 33, 36, 0.08);
+	}
+
+	.highlight-list,
+	.credential-block ul,
+	.timeline ul,
+	.skill-list {
+		padding: 0;
+		list-style: none;
+	}
+
+	.highlight-list {
+		display: grid;
+		gap: 18px;
+		margin: 28px 0 0;
+	}
+
+	.highlight-list li {
+		padding-bottom: 18px;
+		border-bottom: 1px solid rgba(32, 33, 36, 0.12);
+		font-size: 1.2rem;
+		font-weight: 800;
+	}
+
+	.availability {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		color: #3f4442;
+		line-height: 1.5;
+	}
+
+	.availability span {
+		width: 12px;
+		height: 12px;
+		flex: 0 0 auto;
+		border-radius: 50%;
+		background: #2f8f73;
+		box-shadow: 0 0 0 7px rgba(47, 143, 115, 0.14);
+	}
+
+	.section {
+		padding: 72px 0;
+		border-top: 1px solid rgba(32, 33, 36, 0.12);
+	}
+
+	.split {
+		display: grid;
+		grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1fr);
+		gap: 44px;
+		align-items: start;
+	}
+
+	.split > p {
+		margin: 0;
+		color: #3f4442;
+		font-size: 1.15rem;
+		line-height: 1.75;
+	}
+
+	.section-heading {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 24px;
+		margin-bottom: 32px;
+	}
+
+	.credential-layout {
+		display: grid;
+		grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+		gap: 16px;
+	}
+
+	.credential-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.credential-block {
+		padding: 22px;
+	}
+
+	.credential-block ul {
+		display: grid;
+		gap: 12px;
+		margin: 18px 0 0;
+		color: #3f4442;
+		line-height: 1.5;
+	}
+
+	.certification-block {
+		background: #234c46;
+		color: #fffaf1;
+	}
+
+	.certification-block ul {
+		color: #fffaf1;
+	}
+
+	.timeline {
+		display: grid;
+		gap: 22px;
+	}
+
+	.timeline-item {
+		display: grid;
+		grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+		gap: 28px;
+		padding: 28px 0;
+		border-top: 1px solid rgba(32, 33, 36, 0.12);
+	}
+
+	.timeline-item p,
+	.project-card span {
+		color: #3f4442;
+		line-height: 1.65;
+	}
+
+	.company {
+		font-weight: 800;
+	}
+
+	.timeline ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin: 18px 0 0;
+	}
+
+	.timeline li,
+	.skill-list li {
+		border: 1px solid rgba(35, 76, 70, 0.2);
+		border-radius: 999px;
+		background: rgba(35, 76, 70, 0.08);
+		color: #234c46;
+		font-size: 0.92rem;
+		font-weight: 700;
+	}
+
+	.timeline li {
+		padding: 8px 11px;
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.project-card {
+		min-height: 260px;
+		padding: 24px;
+	}
+
+	.project-card h3 {
+		margin-top: 48px;
+		font-size: 1.45rem;
+	}
+
+	.skill-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin: 0;
+	}
+
+	.skill-list li {
+		padding: 10px 14px;
+	}
+
+	.education-section strong {
+		color: #202124;
+	}
+
+	.contact-section {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(280px, 0.75fr);
+		gap: 28px;
+		align-items: start;
+		margin-top: 28px;
+		padding: 34px;
+		background: #202124;
+		color: #fffaf1;
+	}
+
+	.contact-section .eyebrow {
+		color: #e0b35e;
+	}
+
+	.contact-links {
+		display: grid;
+		gap: 12px;
+	}
+
+	.contact-links a {
+		min-width: 0;
+		overflow-wrap: anywhere;
+		padding-bottom: 12px;
+		border-bottom: 1px solid rgba(255, 250, 241, 0.22);
+		color: #fffaf1;
+		text-decoration: none;
+	}
+
+	@media (max-width: 820px) {
+		.resume-shell {
+			width: min(100% - 24px, 680px);
+			padding-top: 12px;
+		}
+
+		.topbar,
+		.hero-actions,
+		.section-heading {
+			align-items: flex-start;
+		}
+
+		.topbar,
+		.hero,
+		.split,
+		.timeline-item,
+		.contact-section {
+			grid-template-columns: 1fr;
+		}
+
+		.topbar {
+			position: static;
+		}
+
+		.hero {
+			min-height: auto;
+			padding: 56px 0 48px;
+		}
+
+		.section {
+			padding: 52px 0;
+		}
+
+		.section-heading,
+		.topbar {
+			flex-direction: column;
+		}
+
+		.project-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.credential-layout,
+		.credential-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.project-card {
+			min-height: 220px;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.nav-links {
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		.nav-links a {
+			padding-inline: 0;
+		}
+
+		.hero-actions,
+		.button {
+			width: 100%;
+		}
+
+		.profile-panel,
+		.contact-section {
+			padding: 22px;
+		}
+	}
+</style>
